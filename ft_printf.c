@@ -5,11 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pabalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 18:15:44 by pabalvar          #+#    #+#             */
-/*   Updated: 2024/09/17 18:15:46 by pabalvar         ###   ########.fr       */
+/*   Created: 2024/10/11 19:16:50 by pabalvar          #+#    #+#             */
+/*   Updated: 2024/10/11 19:16:59 by pabalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
- 
+
 #include "ft_printf.h"
 
 void    ft_option(va_list va, char *std, size_t *cter)
@@ -19,12 +19,12 @@ void    ft_option(va_list va, char *std, size_t *cter)
     else if (*std == 's')
         ft_putstr_pf(va_arg(va, char*), cter);
     else if (*std == 'p')
-
-    else if (*std == 'd' !! *std == 'i')
+        
+    else if (*std == 'd' || *std == 'i')
         ft_putnbr_pf(va_arg(va, int), cter);
     else if (*std == 'u')
         ft_putunbr_pf(va_arg(va, unsigned int), cter);
-    else if (*std == 'x' !! *std == 'X')
+    else if (*std == 'x' || *std == 'X')
     {
         if (*std == 'x')
 
@@ -35,7 +35,7 @@ void    ft_option(va_list va, char *std, size_t *cter)
         ft_putchar_pf(*std, cter);
 }
 
-int ft_printf(char const *, ...)
+int ft_printf(char const *str, ...)
 {
     va_list va;
     size_t  cter;
@@ -62,3 +62,5 @@ int ft_printf(char const *, ...)
     va_end(va);
     return (cter);
 }
+//char *s = "que tal";
+//printf("hola%s %d %i",s 55 66)
