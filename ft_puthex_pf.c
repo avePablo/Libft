@@ -15,7 +15,7 @@
 
 int	ft_strlen(char *str)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	while (*str != '\0')
@@ -26,19 +26,23 @@ int	ft_strlen(char *str)
 	return (len);
 }
 
-void	ft_puthex_pf(int nbr, char *base, size_t cter)
+void	ft_puthex_pf(unsigned long long nbr, char *base, size_t *cter)
 {
-	int	len;
+	unsigned long long	len;
+	char *str;
+	str = "";
 
 	len = ft_strlen(base);
 	if (nbr < 0)
 	{
-		ft_putchar_pf('-');
+		ft_putchar_pf('-', cter);
 		nbr = -nbr;
 	}
-	while (nbr > (len - 1))
+	while (nbr)
 	{
-		ft_puthex_pf(nbr /= len, base, cter);
+		len --;
+		str[len] = base[nbr % len];
+		nbr /= len;
 	}
-	write(1, &base[nbr % len], 1);
+	ft_putstr_pf(str, cter);
 }

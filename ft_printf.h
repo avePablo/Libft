@@ -21,8 +21,9 @@
 
 int     ft_printf(char const *, ...);
 void    ft_putchar_pf(char c, size_t *cter);
-void    ft_putnbt_pf(int n, size_t cter);
+void    ft_putnbr_pf(int n, size_t *cter);
 void    ft_putstr_pf(char *std, size_t *cter);
-void    ft_putunbr_pf(unsigned int n, size_t cter);
+void    ft_putunbr_pf(int n, size_t *cter);
+void	ft_puthex_pf(unsigned long long nbr, char *base, size_t *cter);
 
 #endif

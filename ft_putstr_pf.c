@@ -19,7 +19,7 @@ void	ft_putstr_pf(char *std, size_t *cter)
 
 	i = 0;
 	if (!std)
-		ft_putstr_pf("(null)");
+		ft_putstr_pf("(null)", cter);
 	while (std[i] != '\0')
 	{
 		ft_putchar_pf(std[i], cter); 
