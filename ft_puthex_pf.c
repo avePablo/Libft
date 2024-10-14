@@ -26,23 +26,26 @@ int	ft_strlen(char *str)
 	return (len);
 }
 
-void	ft_puthex_pf(unsigned long long nbr, char *base, size_t *cter)
+void	ft_puthex_pf(size_t nbr, char *base, size_t *cter, int x)
 {
-	unsigned long long	len;
-	char *str;
-	str = "";
+	size_t	len;
+	char	*str;
+	int		i;
 
+	str = malloc(sizeof(unsigned char *));
 	len = ft_strlen(base);
-	if (nbr < 0)
-	{
-		ft_putchar_pf('-', cter);
-		nbr = -nbr;
-	}
+	i = len;
+	if (x == 1 && nbr != 0)
+		ft_putstr_pf("0x", cter);
+	if (nbr == 0 && x == 1)
+		ft_putstr_pf("(nil)", cter);
+	if (x == 0 && nbr == 0)
+		ft_putchar_pf('0', cter);
 	while (nbr)
 	{
-		len --;
-		str[len] = base[nbr % len];
+		i--;
+		str[i] = base[nbr % len];
 		nbr /= len;
 	}
-	ft_putstr_pf(str, cter);
+	ft_putstr_pf(&str[i], cter);
 }

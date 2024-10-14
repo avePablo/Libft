@@ -15,7 +15,7 @@
 
 void	ft_putstr_pf(char *std, size_t *cter)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	if (!std)
@@ -23,6 +23,6 @@ void	ft_putstr_pf(char *std, size_t *cter)
 	while (std[i] != '\0')
 	{
 		ft_putchar_pf(std[i], cter); 
-        i++;
+		i++;
 	}
 }
