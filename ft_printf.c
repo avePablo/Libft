@@ -6,12 +6,11 @@
 /*   By: pabalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 19:16:50 by pabalvar          #+#    #+#             */
-/*   Updated: 2024/10/11 19:16:59 by pabalvar         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:45:13 by pabalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 void	ft_option(va_list va, char *std, size_t *cter)
 {
@@ -42,10 +41,10 @@ void	ft_option(va_list va, char *std, size_t *cter)
 
 int	ft_printf(char const *str, ...)
 {
-	int 		i;
-	char 		*std;
-	va_list 	va;
-	size_t 		cter;
+	int		i;
+	char	*std;
+	va_list	va;
+	size_t	cter;
 
 	std = (char *)str;
 	i = 0;

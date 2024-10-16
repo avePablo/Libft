@@ -29,23 +29,16 @@ int	ft_strlen(char *str)
 void	ft_puthex_pf(size_t nbr, char *base, size_t *cter, int x)
 {
 	size_t	len;
-	char	*str;
-	int		i;
 
-	str = malloc(sizeof(unsigned char *));
 	len = ft_strlen(base);
-	i = len;
 	if (x == 1 && nbr != 0)
 		ft_putstr_pf("0x", cter);
 	if (nbr == 0 && x == 1)
 		ft_putstr_pf("(nil)", cter);
-	if (x == 0 && nbr == 0)
-		ft_putchar_pf('0', cter);
-	while (nbr)
+	if ((nbr >= len))
 	{
-		i--;
-		str[i] = base[nbr % len];
-		nbr /= len;
+		ft_puthex_pf(nbr / len, base, cter, 0);
 	}
-	ft_putstr_pf(&str[i], cter);
+	if (!(x == 1 && nbr == 0))
+		ft_putchar_pf(base[nbr % len], cter);
 }
