@@ -1,39 +1,29 @@
 #include "get_next_line.h"
 
 
-// void	buffer_maker(int fd)
-// {
-
-// }
-
-char	*read_line(int fd)
-{
-	char *buffer;
-	int bytes_read;
-	char *save;
-	int i;
-
-	i = 0;
-
-	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	save = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	bytes_read = read(fd, buffer, BUFFER_SIZE);
-	while (buffer[i] != '\n')
-	{
-		save[i] = buffer[i];
-		i++;
-	}
-
-	return (save);
-}
 
 char	*get_next_line(int fd)
 {
-	static char *buffer_line;
+	static int k;
+	char *buffer;
+	int j;
+	int i;
+	int bytes_read;
+	j = 0;
+	 printf("%d\n\n", k);
+	i = k;
+	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	bytes_read = read(fd, buffer, BUFFER_SIZE);
+	while (buffer[k + j++] != '\n')
+	{
+		j++;
+	}
+    k += j + 1;
+	// printf("%d\n", i);
+	// printf("%d\n", j);
+	// printf("%d\n", k);
 
-	buffer_line = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	buffer_line = read_line(fd);
-	return (buffer_line);
+	return (ft_substr(buffer, i, j));
 }
 
 int	main(void)
@@ -41,6 +31,13 @@ int	main(void)
 	int fd;
 
 	fd = open("prueba.txt", O_RDONLY);
+	printf("%s\n", get_next_line(fd));
+	printf("%s\n", get_next_line(fd));
+	printf("%s\n", get_next_line(fd));
+	printf("%s\n", get_next_line(fd));
+	printf("%s\n", get_next_line(fd));
+	printf("%s\n", get_next_line(fd));
+	printf("%s\n", get_next_line(fd));
 	printf("%s\n", get_next_line(fd));
 
 	close(fd);

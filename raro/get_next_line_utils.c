@@ -16,15 +16,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 void	*ft_bzero(void *s, size_t n)
 {
 	char	*pt;
-
-	pt = (char *)s;
-	pt = ft_memset(s, '\0', n);
-	return (pt);
-}
-
-void	*ft_memset(void *s, int c, size_t n)
-{
-	char	*pt;
 	size_t	i;
 
 	pt = (char *)s;
@@ -35,11 +26,30 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	while (i < n)
 	{
-		pt[i] = c;
+		pt[i] = '\0';
 		i++;
 	}
 	return (pt);
 }
+
+// void	*ft_memset(void *s, size_t n)
+// {
+// 	char	*pt;
+// 	size_t	i;
+
+// 	pt = (char *)s;
+// 	i = 0;
+// 	if (n == 0)
+// 	{
+// 		return (pt);
+// 	}
+// 	while (i < n)
+// 	{
+// 		pt[i] = '\0';
+// 		i++;
+// 	}
+// 	return (pt);
+// }
 
 //todo esto de abajo es del substr
 

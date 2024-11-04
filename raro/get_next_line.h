@@ -11,7 +11,7 @@
 # endif
 
 static char	*get_next_line(int fd);
-char	*read_line(int fd, int k);
+char	*get_line(char *bufer);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);

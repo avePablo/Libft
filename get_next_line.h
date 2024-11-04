@@ -10,10 +10,12 @@
 #  define BUFFER_SIZE 4000
 # endif
 
-char    *get_next_line(int fd);
-char		*read_line(int fd);
+static char	*get_next_line(int fd);
+char	*read_line(int fd, int k);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
+char	*ft_substr(char *s, int start, size_t len);
+size_t	ft_strlen(char *str);
 
 #endif
