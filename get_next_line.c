@@ -1,7 +1,6 @@
 #include "get_next_line.h"
 
 
-
 char	*get_next_line(int fd)
 {
 	static int k;
@@ -9,8 +8,10 @@ char	*get_next_line(int fd)
 	int j;
 	int i;
 	int bytes_read;
+
 	j = 0;
-	 printf("%d\n\n", k);
+
+	printf("%d\n\n", k);
 	i = k;
 	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
@@ -18,7 +19,7 @@ char	*get_next_line(int fd)
 	{
 		j++;
 	}
-    k += j + 1;
+	k += j + 1;
 	// printf("%d\n", i);
 	// printf("%d\n", j);
 	// printf("%d\n", k);
