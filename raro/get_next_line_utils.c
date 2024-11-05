@@ -97,6 +97,8 @@ size_t	ft_strlen(char *str)
 	size_t len;
 
 	len = 0;
+	if (!str)
+		return (0);
 	while (str[len] != '\0')
 	{
 		len++;
@@ -104,21 +106,20 @@ size_t	ft_strlen(char *str)
 	return (len);
 }
 
-char	*ft_strcat(char *dest, char *src)
-{
-	int i;
-	int j;
+// char	*ft_strcat(char *dest, char *src)
+// {
+// 	int i;
+// 	int j;
 
-	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j])
-	{
-		dest[j + i] = src[j];
-		j++;
-	}
-	dest[i + j] = '\0';
-	// printf("dest: %s\n", dest);
-	return (dest);
-}
+// 	i = 0;
+// 	j = 0;
+// 	while (dest[i])
+// 		i++;
+// 	while (src[j])
+// 	{
+// 		dest[j + i] = src[j];
+// 		j++;
+// 	}
+// 	dest[i + j] = '\0';
+// 	return (dest);
+// }
